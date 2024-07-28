@@ -4,7 +4,7 @@ Use commands.txt for testing
 
 Example
 ```bash
-python main.py -v < commands.txt
+goit-pycore-hw-07 % python main.py -v < commands.txt
 Welcome to the assistant bot!
 Enter a command: Command: hello
 How can I help you?
@@ -13,17 +13,14 @@ Contact added.
 Enter a command: Command: add Jane 0954909119
 Contact added.
 Enter a command: Command: birthday Jane 30.07.2024
-30.07.2024
 Birthday added.
 Enter a command: Command: add John 0954456119
 Contact added.
 Enter a command: Command: birthday John 01.08.2024
-01.08.2024
 Birthday added.
 Enter a command: Command: add Jack 0954455119
 Contact added.
 Enter a command: Command: birthday Jack 01.07.2024
-01.07.2024
 Birthday added.
 Enter a command: Command: all
 Contact name: Jane
