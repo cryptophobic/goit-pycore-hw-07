@@ -1,4 +1,4 @@
-Use commands.txt for testing
+You can use commands.txt for testing
 
 -v stands for verbose. Helps to track typed commands.
 
