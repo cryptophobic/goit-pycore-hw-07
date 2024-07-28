@@ -1,0 +1,11 @@
+hello
+add Jane 0501722625
+add Jane 0954909119
+birthday Jane 30.07.2024
+add John 0954456119
+birthday John 01.08.2024
+add Jack 0954455119
+birthday Jack 01.07.2024
+all
+greetings
+close
