@@ -38,5 +38,5 @@ Enter a command: Command: greetings
 name: Jane; Congratulation date: 2024.07.30
 name: John; Congratulation date: 2024.08.01
 Enter a command: Command: close
-```
 Good bye!
+```
