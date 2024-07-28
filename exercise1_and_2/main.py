@@ -1,13 +1,15 @@
+import argparse
 import sys
+from colorama import Fore
 
 from AddressBook import AddressBook
 from Record import Record
 
 
 def input_error(func):
-    def inner(*args, **kwargs):
+    def inner(*input_args, **kwargs):
         try:
-            return func(*args, **kwargs)
+            return func(*input_args, **kwargs)
         except (KeyError, ValueError, IndexError) as err:
             return str(err)
 
@@ -16,14 +18,14 @@ def input_error(func):
 
 @input_error
 def parse_input(user_input):
-    cmd, *args = user_input.split()
+    cmd, *input_args = user_input.split()
     cmd = cmd.strip().lower()
-    return cmd, *args
+    return cmd, *input_args
 
 
 @input_error
-def add_contact_details(args: list, book: AddressBook) -> str:
-    name, phone_number = args
+def add_contact_details(input_args: list, book: AddressBook) -> str:
+    name, phone_number = input_args
     record = book.find(name)
     if record is not None:
         record.add_phone_number(phone_number)
@@ -36,8 +38,8 @@ def add_contact_details(args: list, book: AddressBook) -> str:
 
 
 @input_error
-def add_birthday(args: list, book: AddressBook) -> str:
-    name, birthday = args
+def add_birthday(input_args: list, book: AddressBook) -> str:
+    name, birthday = input_args
     record = book.find(name)
     if record is None:
         raise KeyError("Contact not found.")
@@ -48,8 +50,8 @@ def add_birthday(args: list, book: AddressBook) -> str:
 
 
 @input_error
-def change_contact(args: list, book: AddressBook) -> str:
-    name, old_phone, new_phone = args
+def change_contact(input_args: list, book: AddressBook) -> str:
+    name, old_phone, new_phone = input_args
     record = book.find(name)
     if record is None:
         raise KeyError("Contact not found.")
@@ -59,8 +61,8 @@ def change_contact(args: list, book: AddressBook) -> str:
 
 
 @input_error
-def phone_contact(args: list, book: AddressBook) -> str:
-    [name] = args
+def phone_contact(input_args: list, book: AddressBook) -> str:
+    [name] = input_args
     record = book.find(name)
     if record is None:
         raise KeyError("Contact not found.")
@@ -68,25 +70,28 @@ def phone_contact(args: list, book: AddressBook) -> str:
     return '; '.join(p.value for p in record.phones)
 
 
-def main():
+def main(verbose=False):
     print("Welcome to the assistant bot!")
     book = AddressBook()
     close = False
     while not close:
-        user_input = input("Enter a command: ")
-        command, *args = parse_input(user_input)
+        user_input = input(f"{Fore.GREEN}Enter a command: {Fore.RESET}\n")
+        command, *input_args = parse_input(user_input)
+
+        if verbose is True:
+            print(f"{Fore.YELLOW}Command: {Fore.RESET}{command}", *input_args)
 
         match command:
             case "hello":
                 print("How can I help you?")
             case "add":
-                print(add_contact_details(args, book))
+                print(add_contact_details(input_args, book))
             case "change":
-                print(change_contact(args, book))
+                print(change_contact(input_args, book))
             case "phone":
-                print(phone_contact(args, book))
+                print(phone_contact(input_args, book))
             case "birthday":
-                print(add_birthday(args, book))
+                print(add_birthday(input_args, book))
             case "greetings":
                 print(book.get_upcoming_birthdays())
             case "all":
@@ -101,4 +106,11 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-v",
+        "--verbose",
+        help="Add extra debugging info",
+        action="store_true")
+    args = parser.parse_args()
+    main(**vars(args))

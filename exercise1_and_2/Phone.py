@@ -13,5 +13,5 @@ class Phone(Field):
             raise ValueError(f"{phone_number} is not a valid phone number.")
 
         phone_number_stripped = re.sub('[^0-9]', '', phone_number)
-        if (len(phone_number_stripped) != 12) and (len(phone_number_stripped) != 10):
+        if len(phone_number_stripped) != 10:
             raise ValueError(f"{phone_number} is not a valid phone number.")
