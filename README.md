@@ -10,8 +10,14 @@ Enter a command: hello
 How can I help you?
 Enter a command: add Jane 0501722625
 Contact added.
-Enter a command: add Jane 0954909119
+Enter a command: add Jane 0999999999
 Contact added.
+Enter a command: phone Jane
+0501722625; 0999999999
+Enter a command: change Jane 0999999999 0954909119
+Contact updated.
+Enter a command: phone Jane
+0501722625; 0954909119
 Enter a command: add Jane 09549094119
 09549094119 is not a valid phone number.
 Enter a command: birthday Jane 30.07.2024
