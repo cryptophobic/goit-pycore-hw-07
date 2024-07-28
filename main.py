@@ -75,7 +75,7 @@ def main(verbose=False):
     book = AddressBook()
     close = False
     while not close:
-        user_input = input(f"{Fore.GREEN}Enter a command: {Fore.RESET}\n")
+        user_input = input(f"{Fore.GREEN}Enter a command: {Fore.RESET}")
         command, *input_args = parse_input(user_input)
 
         if verbose is True:
