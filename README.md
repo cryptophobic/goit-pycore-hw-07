@@ -12,8 +12,12 @@ Enter a command: Command: add Jane 0501722625
 Contact added.
 Enter a command: Command: add Jane 0954909119
 Contact added.
+Enter a command: Command: add Jane 09549094119
+09549094119 is not a valid phone number.
 Enter a command: Command: birthday Jane 30.07.2024
 Birthday added.
+Enter a command: Command: birthday Jane 30.07.20242
+Invalid date format. Use DD.MM.YYYY
 Enter a command: Command: add John 0954456119
 Contact added.
 Enter a command: Command: birthday John 01.08.2024
