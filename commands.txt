@@ -1,7 +1,9 @@
 hello
 add Jane 0501722625
 add Jane 0954909119
+add Jane 09549094119
 birthday Jane 30.07.2024
+birthday Jane 30.07.20242
 add John 0954456119
 birthday John 01.08.2024
 add Jack 0954455119

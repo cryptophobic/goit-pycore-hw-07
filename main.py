@@ -79,7 +79,7 @@ def main(verbose=False):
         command, *input_args = parse_input(user_input)
 
         if verbose is True:
-            print(f"{Fore.YELLOW}Command: {Fore.RESET}{command}", *input_args)
+            print(command, *input_args)
 
         match command:
             case "hello":
