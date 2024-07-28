@@ -1,9 +1,9 @@
-Test with commands
-python main.py -v < commands.txt
-
+Use commands.txt for testing
 -v stands for verbose. Helps to track typed commands.
 
-Output
+Example
+```bash
+python main.py -v < commands.txt
 Welcome to the assistant bot!
 Enter a command: Command: hello
 How can I help you?
@@ -38,4 +38,5 @@ Enter a command: Command: greetings
 name: Jane; Congratulation date: 2024.07.30
 name: John; Congratulation date: 2024.08.01
 Enter a command: Command: close
+```
 Good bye!
